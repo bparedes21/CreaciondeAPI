@@ -1,0 +1,25 @@
+JSON
+qualifying_split_1
+{
+    "qualifyId": 1,
+    "raceId": 18,
+    "driverId": 1,
+    "constructorId": 1,
+    "number": 22,
+    "position": 1,
+    "q1": "1:26.572",
+    "q2": "1:25.187",
+    "q3": "1:26.714"
+  },
+qualifying_split_2
+  {
+    "qualifyId": 5002,
+    "raceId": 861,
+    "driverId": 811,
+    "constructorId": 3,
+    "number": 19,
+    "position": 13,
+    "q1": "1:38.437",
+    "q2": "1:37.841",
+    "q3": "\\N"
+  },
