@@ -62,3 +62,30 @@ def mostrar_piloto_con_primeros_puestos():
     nombreyApellido    
     
     return nombreyApellido
+
+#no recibe parametros
+#abre un csv: drivers_.csv, cada registro es corredor, busca los corredores con   american o british
+#luego abre un csv: result_.csv, y busca el nombre del corredor de esa nacionalidad con mayor puntaje
+#devuelve el nombre del corredor en primer puesto
+
+def buscar_conductor_con_mas_puntaje():
+    import pandas as pd
+    datos_df=pd.read_csv(r'C:\Users\ROXI\OneDrive\Escritorio\Proyecto Individual 1- Data 03- Soy Henry\Proyecto-Individual-1\Datasets\pandas\dataset_procesados\result_.csv',encoding='utf-8-sig')
+    datos_df_1=pd.read_csv(r'C:\Users\ROXI\OneDrive\Escritorio\Proyecto Individual 1- Data 03- Soy Henry\Proyecto-Individual-1\Datasets\pandas\dataset_procesados\drivers_.csv',encoding='utf-8-sig')
+
+    pilotos=datos_df_1[(datos_df_1['nationality'] == "american") | (datos_df_1['nationality'] == "british")]
+    conductor_american_british=pilotos["driverId"].values
+
+
+    auxiliar=0
+    auxiliar_conductor=0
+    for indice,conductor in enumerate(conductor_american_british):
+        conductor_puntos=datos_df[datos_df['points']==conductor]
+        
+        conductor_puntos_cantidad=conductor_puntos["points"].sum()
+        if(conductor_puntos_cantidad>auxiliar):
+            auxiliar=conductor_puntos_cantidad
+            auxiliar_conductor=conductor
+
+    
+    return print(auxiliar_conductor) 
