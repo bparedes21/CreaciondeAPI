@@ -31,3 +31,34 @@ def busca_circuito_mas_corrido():
     nombre_de_circuitor=registro_de_circuito["name"]
 
     return nombre_de_circuitor.iloc[0]
+
+#no recibe parametros
+#abre un csv: result_.csv, cada registro es una resultado, agrupa los corredores y compara almacenadno el ganador con mas resultados en primer puesto
+#luego abre un csv: drivers_.csv, y busca el nombre del corredor en primer puesto
+#devuelve el nombre del corredor en primer puesto
+
+def mostrar_piloto_con_primeros_puestos():
+    import pandas as pd
+    
+    datos_df=pd.read_csv(r'C:\Users\ROXI\OneDrive\Escritorio\Proyecto Individual 1- Data 03- Soy Henry\Proyecto-Individual-1\Datasets\pandas\dataset_procesados\result_.csv',encoding='utf-8-sig')
+    datos_df_1=pd.read_csv(r'C:\Users\ROXI\OneDrive\Escritorio\Proyecto Individual 1- Data 03- Soy Henry\Proyecto-Individual-1\Datasets\pandas\dataset_procesados\drivers_.csv',encoding='utf-8-sig')
+
+    array_conductor=datos_df['driverId'].sort_values()
+    array_conductor=array_conductor.unique()
+
+    auxiliar=0
+    auxiliar_conductor=0
+    for indice,conductor in enumerate(array_conductor) :
+        conductor_df=datos_df[datos_df['positionOrder']==conductor]
+        primera_posicion=conductor_df[conductor_df['positionOrder']==1]
+        cantidad_de_veces=primera_posicion['positionOrder'].count()
+        if(cantidad_de_veces>auxiliar):
+            auxiliar=cantidad_de_veces
+            auxiliar_conductor=conductor
+
+
+    conductor_df_1=datos_df_1[datos_df_1['driverId']==auxiliar_conductor]
+    nombreyApellido=conductor_df_1[["forename","surname"]].values
+    nombreyApellido    
+    
+    return nombreyApellido
