@@ -12,11 +12,11 @@ def contar_año_con_mas_carreras():
 
 
 #no recibe parametros
-#abre un csv: races_.csv, cada registro es una circuito recorrido, cuenta la cantidad de circuitId por cada circuito
+#abre un csv: races_.csv, cada registro es una circuito corrido, cuenta la cantidad de circuitId por cada circuito
 #luego abre un csv: circuit_.csv, y busca el circuitId con mas recorridos
 #devuelve el nombre del circuito con mas recorridos
 
-def busca_circuito_mas_recorrido():
+def busca_circuito_mas_corrido():
     import numpy as np
     import pandas as pd
 
