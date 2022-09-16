@@ -1,3 +1,4 @@
+
 directorio de carpetas:
 -carpeta script
      + 
@@ -21,3 +22,14 @@ directorio de carpetas:
 		                -races_
 	 	                -result_
 
+
+*****************************
+
+    FUNCIONA VER EN
+
+****video de youtube*********
+
+https://youtu.be/IXAubmGBM7g
+
+
+*****************************

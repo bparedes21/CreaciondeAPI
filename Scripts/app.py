@@ -62,7 +62,7 @@ async  def get_Piloto_con_mayor_cantidad_de_primeros_puestos():
 
     forename=conductor_df_1["forename"].iloc[0]
     surname=conductor_df_1["surname"].iloc[0]   
-    return {'El  nombre del corredor con mayor cantidad de primeros puestos: ' + forename + surname + '!'}
+    return {'El  nombre del corredor con mayor cantidad de primeros puestos: ' + forename +' '+ surname + '!'}
 
 #no recibe parametros
 #abre un csv: races_.csv, cada registro es una circuito corrido, cuenta la cantidad de circuitId por cada circuito
@@ -126,4 +126,4 @@ async  def get_buscar_conductor_con_mas_puntaje():
     forename=name_driver["forename"].iloc[0]
     surname=name_driver["surname"].iloc[0]
     
-    return {'El nombre del corredor con mayor cantidad de puntos en total: ' +forename + surname+'!'}
+    return {'El nombre del corredor con mayor cantidad de puntos en total: ' +forename+' '+ surname+'!'}
