@@ -1,21 +1,23 @@
 directorio de carpetas:
--script
-    -app(FastApI)
-    -
--Dataset 
+-carpeta script
+     + 
+     -app(FastApI).py 
+     -
+-carpeta Dataset 
+   +
    -aca estan los dataset sin procesar
    -json
    -csv
-   ------>pandas
+   +carpeta pandas-->
             -aca estan los archivos python .py
-            -carpeta  dataset_procesados
             -
-            ------->dataset_procesados
-		     -funciones_consultas que sirven faltan poner en fastApi	
-                     -aca estan los dataset procesados de los cuales se realizan las consultas
-                     -circuit_
-                     -drivers_
-		     -races_
-	 	     -result_
+            -funciones_consultas (tambien estan en el archivo app.py)
+	    -
+            +carpeta dataset_procesados---> 
+		     		-
+                                -aca estan los dataset procesados de los cuales se realizan las consultas
+                                -circuit_
+                                -drivers_
+		                -races_
+	 	                -result_
 
-para ejejecutar fast api abro app.py y ejecuto desde terminal
