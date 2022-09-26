@@ -1,8 +1,12 @@
 
 directorio de carpetas:
--carpeta script
++ 
+-main(FastApI).py (funciona con heroku)
+-
+
+-carpeta script 
      + 
-     -app(FastApI).py 
+     -app(FastApI).py (funciona sin heroku)
      -
 -carpeta Dataset 
    +
@@ -29,7 +33,7 @@ directorio de carpetas:
 
 ****video de youtube*********
 
-https://youtu.be/IXAubmGBM7g
+https://youtu.be/IXAubmGBM7g (sin heroku)
 
-
+https://youtu.be/kQT8ulLdqfU (con heroku)
 *****************************
