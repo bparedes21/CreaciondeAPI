@@ -1,5 +1,5 @@
-/__pycache__
-/Lib
-/Include
-/Scripts
-/share
+__pycache__/
+Lib/
+Include/
+Scripts/
+share/
