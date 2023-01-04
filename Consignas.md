@@ -1,16 +1,3 @@
-
-
-*****************************
-
-    FUNCIONA VER EN
-
-****video de youtube*********
-
-https://youtu.be/IXAubmGBM7g (sin heroku)
-
-https://youtu.be/kQT8ulLdqfU (con heroku)
-*****************************
-
 # CONSIGNAS
 # Proyecto Individual 1- Data 03- Soy Henry   
 ## Creación de una API
