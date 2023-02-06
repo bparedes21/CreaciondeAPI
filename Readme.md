@@ -5,5 +5,10 @@ https://youtu.be/IXAubmGBM7g (sin heroku)
 
 https://youtu.be/kQT8ulLdqfU (con heroku)
 
+<a target="_blank">
+  <img align="right" height="400" width="400" alt="GIF" src="https://github.com/bparedes21/Proyecto-Individual-1/blob/main/crear%20api.gif">
+</a>
+<a href="https://youtu.be/IXAubmGBM7g "><img src="https://ytcards.demolab.com/?id=6u9BrDaSHJc&title=Automatically+Deploy+to+Fly.io+with+GitHub+Actions&lang=en&timestamp=1661864404&background_color=%230d1117&title_color=%23ffffff&stats_color=%23dedede&width=250&duration=312" alt="Automatically Deploy to Fly.io with GitHub Actions" title="Automatically Deploy to Fly.io with GitHub Actions"></a>
 
-![En este proyecto tuve que realizar la creación y correcta ejecución de una API  Luego trabaje con un conjunto de datasets en diferentes formatos los cuales transforme, normalice y analice para ello tuve que garantiz](https://user-images.githubusercontent.com/68014465/211684527-c93ba13e-87ad-44f6-96a0-1486a556dfc3.gif)
+
+https://www.youtube.com/watch?v=n6d4KHSKqGk&ab_channel=codeSTACKr
