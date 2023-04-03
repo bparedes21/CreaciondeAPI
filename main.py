@@ -126,7 +126,7 @@ async  def get_buscar_conductor_con_mas_puntaje():
     return {'El nombre del corredor con mayor cantidad de puntos en total: ' +forename+' '+ surname+'!'}
    
  """  
-   def create_app():
+def create_app():
     from waitress import serve
     PORT = int(os.environ.get("PORT",8000))
     serve(app, host="0.0.0.0", port=PORT)
