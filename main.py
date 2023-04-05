@@ -1,24 +1,21 @@
+
 from fastapi import FastAPI
-from fastapi.responses import FileResponse
 import os
-#from sqlalchemy import create_engine, MetaData
-#from rutas.user import user
-#from config import db
+from fastapi.responses import FileResponse
 
 
-#  .\uvicorn app:app --reload para reiniciar el servidor automaticamente
 app=FastAPI() 
- #app.include_router(user)
 
 @app.get("/")
 def index():
-    return {"hello":"world"}
 
+    return {"hello":"world"}
+ """
 #no recibe parametros
 #abre un csv: races_.csv, cada registro es una carrera, cuenta la cantidad de registros por cada año
 #devuelve el Año con más carreras
 @app.get("/get_año_con_mas_carreras")
-async  def get_año_con_mas_carreras():
+def get_año_con_mas_carreras():
     import pandas as pd
     import numpy as np
     races_dataset=os.path.join("races_.csv")
@@ -28,15 +25,15 @@ async  def get_año_con_mas_carreras():
     c=cantidad_carreras.index[0]
     converted_num = str(c)
 
-
-    return {'El Año con más carreras ' + converted_num + '!'}
+    mensaje="El Año con más carreras " + converted_num + "!"
+    return {"mensaje":mensaje}
 
 #no recibe parametros
 #abre un csv: result_.csv, cada registro es una resultado, agrupa los corredores y compara almacenadno el ganador con mas resultados en primer puesto
 #luego abre un csv: drivers_.csv, y busca el nombre del corredor en primer puesto
 #devuelve el nombre del corredor en primer puesto
-@app.get("/get_Piloto_con_mayor_cantidad_de_primeros_puestos")
-async  def get_Piloto_con_mayor_cantidad_de_primeros_puestos():
+@app.get("/get_Piloto_con_mayor_cantidad_de_primeros_puestos/")
+def get_Piloto_con_mayor_cantidad_de_primeros_puestos():
     import pandas as pd
     import numpy as np
     result_dataset=os.path.join("result_.csv")
@@ -127,3 +124,13 @@ async  def get_buscar_conductor_con_mas_puntaje():
     surname=name_driver["surname"].iloc[0]
     
     return {'El nombre del corredor con mayor cantidad de puntos en total: ' +forename+' '+ surname+'!'}
+   
+ """  
+def create_app():
+    from waitress import serve
+    PORT = int(os.environ.get("PORT",8000))
+    serve(app, host="0.0.0.0", port=PORT)
+
+
+if __name__ == "__main__":
+    create_app()

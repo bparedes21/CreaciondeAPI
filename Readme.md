@@ -1,15 +1,13 @@
-FUNCIONA VER EN
-video de youtube*****
+<div>
+<h1>Presentacion</h1>
+<details open> 
+  <summary><h2>Videos en youtube</h2></summary>
 
-https://youtu.be/IXAubmGBM7g (sin heroku)
-
-https://youtu.be/kQT8ulLdqfU (con heroku)
-###
-#<a target="_blank">
-#  <img align="right" height="400" width="400" alt="GIF" src="https://github.com/bparedes21/Proyecto-Individual-1/blob/main/crear%20api.gif">
-#</a>
-#<a href="https://youtu.be/IXAubmGBM7g "><img src="" alt="" title="Automatically Deploy to Fly.io with GitHub Actions"></a>
-
-
-
-https://www.youtube.com/watch?v=n6d4KHSKqGk&ab_channel=codeSTACKr
+<p align="left"> 
+  <h3>Deploy sin heroku ejecutado localmente</h3>
+  <a href="https://youtu.be/IXAubmGBM7g"><img width="278" src="https://img.youtube.com/vi/IXAubmGBM7g/0.jpg" alt=""></a>
+  <h3>Deploy con heroku</h3>
+  <a href="https://youtu.be/kQT8ulLdqfU"><img width="278" src="https://img.youtube.com/vi/kQT8ulLdqfU/0.jpg" alt=""></a>
+ </p>
+ 
+</div>
