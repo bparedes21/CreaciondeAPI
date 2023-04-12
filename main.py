@@ -16,6 +16,24 @@ def create_app():
     PORT = int(os.environ.get("PORT",8000))
     serve(app, host="0.0.0.0", port=PORT)
 
+#no recibe parametros
+#abre un csv: races_.csv, cada registro es una carrera, cuenta la cantidad de registros por cada año
+#devuelve el Año con más carreras
+@app.get("/get_año_con_mas_carreras")
+def get_año_con_mas_carreras():
+    import pandas as pd
+    import numpy as np
+    url_drive='https://drive.google.com/file/d/1b4LVRIo2KCemZuKvVv3e3nll5KXp9-5H/view?usp=share_link'   
+    url='https://drive.google.com/uc?id=' + url_drive.split('/')[-2]
+    racesdf = pd.read_csv(url)
+    
+    cantidad_carreras=pd.DataFrame(racesdf['year'].value_counts())
+    c=cantidad_carreras.index[0]
+    converted_num = str(c)
+
+    mensaje="El Año con más carreras " + converted_num + "!"
+    return {"mensaje":mensaje}
+
 
 if __name__ == "__main__":
     create_app()
