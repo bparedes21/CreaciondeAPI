@@ -12,7 +12,7 @@
 
 <p align="left"> 
   <h3>Flujo de trabajo</h3>
-   <a href="https://creacionde-api.vercel.app/docs"><img width="200" src="img/vercel.svg" alt="creacion-de-api"></a>
+   <a href=""><img width="500" src="img/fluj de trabajo.svg" alt="flujo de trabajo></a>
  </p>
 </div>
 
