@@ -1,6 +1,6 @@
 <div>
 <h1>Presentacion</h1>
-<details open> 
+<details close> 
   <summary><h2>Videos en youtube</h2></summary>
 
 <p align="left"> 
