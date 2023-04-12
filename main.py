@@ -22,16 +22,16 @@ def create_app():
 @app.get("/get_año_con_mas_carreras")
 def get_año_con_mas_carreras():
     import pandas as pd
-    import numpy as np
+
     url_drive='https://drive.google.com/file/d/1b4LVRIo2KCemZuKvVv3e3nll5KXp9-5H/view?usp=share_link'   
     url='https://drive.google.com/uc?id=' + url_drive.split('/')[-2]
-    racesdf = pd.read_csv(url)
+    """"racesdf = pd.read_csv(url)
     
-    cantidad_carreras=pd.DataFrame(racesdf['year'].value_counts())
+    cantidad_carreras=racesdf['year'].value_counts()
     c=cantidad_carreras.index[0]
-    converted_num = str(c)
+    converted_num = str(c)"""
 
-    mensaje="El Año con más carreras " + converted_num + "!"
+    mensaje="El Año con más carreras " + url_drive + "!"
     return {"mensaje":mensaje}
 
 
