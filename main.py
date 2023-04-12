@@ -63,13 +63,14 @@ def get_Piloto_con_mayor_cantidad_de_primeros_puestos():
         if(cantidad_de_veces>auxiliar):
             auxiliar=cantidad_de_veces
             auxiliar_conductor=conductor
+    converted_auxiliar = str(auxiliar)
     #guarda el registro con todos los datos del conductor con el id que contiene auxiliar_conductor
     conductor_df_1=driverdf[driverdf['driverId']==auxiliar_conductor]
     #guarda el nombre y apellido del registro
     forename=conductor_df_1["forename"].iloc[0]
     surname=conductor_df_1["surname"].iloc[0]   
 
-    return {'El  nombre del corredor con mayor cantidad de primeros puestos: ' + forename +' '+ surname + ' con la cantidad de '+auxiliar+' primeros puestos.'}
+    return {'El  nombre del corredor con mayor cantidad de primeros puestos: ' + forename +' '+ surname + ' con la cantidad de '+converted_auxiliar+' primeros puestos.'}
 
 def create_app():
     from waitress import serve
