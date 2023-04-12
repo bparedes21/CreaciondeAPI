@@ -85,33 +85,65 @@ async  def get_busca_circuito_con_mas_corridos():
     url='https://drive.google.com/uc?id=' + url_races.split('/')[-2]
     races_df = pd.read_csv(url)
 
-    #crear dataframes
-    array_circuitId=pd.DataFrame()
-    nombre_de_circuitor=pd.DataFrame()
-    registro_de_circuito=pd.DataFrame()
+
+    #array_circuitId almacena valores unicos de circuit id
+    array_circuitId=races_df['circuitId'].value_counts()
+    #circuitId_mas_recorrido almacena el id con mas recorridos
+    circuitId_mas_recorrido=array_circuitId.index[0]
+    
+    #veces_recorridas almacena la cantidad de veces recorridas 
+    veces_recorridas=array_circuitId[circuitId_mas_recorrido]
+    #convierte el tipo de dato int a str
+    converted_veces_recorridas=str(veces_recorridas)
+
     #importar el csv circuit desde drive
     url_circuit='https://drive.google.com/file/d/1fFdYQQoc4afdt_QpE3sLUd8znCtBhkIz/view?usp=share_link'
     url1='https://drive.google.com/uc?id=' + url_circuit.split('/')[-2]
     circuit_df = pd.read_csv(url1)
 
-
-    
-    #array_circuitId almacena valores unicos de circuit id
-    array_circuitId["c"]=races_df['circuitId'].value_counts()
-    #circuitId_mas_recorrido almacena el id con mas recorridos
-    circuitId_mas_recorrido=array_circuitId.index[0]
-    #veces_recorridas almacena la cantidad de veces recorridas 
-    veces_recorridas=circuitId_mas_recorrido[circuitId_mas_recorrido]
-    #convierte el tipo de dato int a str
-    converted_veces_recorridas=str(veces_recorridas)
     #registro_de_circuito almacena el registro completo del id (del csv circuit) con mas recorridos encontrado en el csv races
     registro_de_circuito=circuit_df[circuit_df["circuitId"]==circuitId_mas_recorrido]
     #nombre_de_circuitor almacena el nombre del circuito
-    nombre_de_circuitor=registro_de_circuito["name"]
+    nombre_de_circuitor=registro_de_circuito["name"].iloc[0]
     
    
     
     return {'El nombre del circuito con mas recorrido es: ' + nombre_de_circuitor + ' con la cantidad de '+converted_veces_recorridas+' veces recorridas.'}
+
+#Piloto con mayor cantidad de puntos en total, cuyo constructor sea de nacionalidad sea American o British
+#no recibe parametros
+#abre un csv: drivers_.csv, cada registro es corredor, busca los corredores con   american o british
+#luego abre un csv: result_.csv, y busca el nombre del corredor de esa nacionalidad con mayor puntaje
+#devuelve el nombre del corredor con mayor cantidad de puntos en total
+@app.get("/get_buscar_conductor_con_mas_puntaje")
+async  def get_buscar_conductor_con_mas_puntaje():
+
+    import pandas as pd
+    result_dataset=os.path.join("result_.csv")
+    result_df=pd.read_csv(result_dataset)
+
+    drivers_dataset=os.path.join('drivers_.csv')
+    drivers_df2=pd.read_csv(drivers_dataset)
+
+    pilotos=drivers_df2[(drivers_df2['nationality'] == "american") | (drivers_df2['nationality'] == "british")]
+    conductor_american_british=pilotos["driverId"].values
+
+    auxiliar=0
+    auxiliar_conductor=0
+    for indice,conductor in enumerate(conductor_american_british):
+        conductor_puntos=result_df[result_df['points']==conductor]
+        
+        conductor_puntos_cantidad=conductor_puntos["points"].sum()
+        if(conductor_puntos_cantidad>auxiliar):
+            auxiliar=conductor_puntos_cantidad
+            auxiliar_conductor=conductor
+    name_driver=drivers_df2[drivers_df2['driverId'] == auxiliar_conductor]
+    forename=name_driver["forename"].iloc[0]
+    surname=name_driver["surname"].iloc[0]
+    
+    return {'El nombre del corredor con mayor cantidad de puntos en total: ' +forename+' '+ surname+'!'}
+
+
 
 def create_app():
     from waitress import serve
