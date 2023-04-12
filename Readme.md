@@ -1,10 +1,17 @@
 <div>
 <h1>Presentacion</h1>
+  <h3>En este proyecto proceso los datos para garantizar su calidad y luego creo una API para ejecutar determinadas consultas facilitando la informacion obtenida</h3>
 <details open> 
   <summary><h2>Deploy en Vercel</h2></summary>
 
 <p align="left"> 
-  <h3>Ver su funcionamiento</h3>
+  <h3>Ver su funcionamiento (haciendo click en logo Vercel 😃)</h3>
+   <a href="https://creacionde-api.vercel.app/docs"><img width="200" src="img/vercel.svg" alt="creacion-de-api"></a>
+ </p>
+</div>
+
+<p align="left"> 
+  <h3>Flujo de trabajo</h3>
    <a href="https://creacionde-api.vercel.app/docs"><img width="200" src="img/vercel.svg" alt="creacion-de-api"></a>
  </p>
 </div>
