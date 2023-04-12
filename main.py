@@ -1,20 +1,45 @@
 
 from fastapi import FastAPI
 import os
-#from fastapi.responses import FileResponse
+from starlette.responses import  RedirectResponse
+tags_metadata = [
+    {
+        "name": "Races",
+        "description": "Consultas a datos de Races.csv"
+    },
+    {
+        "name": "Driver, Result",
+        "description": "Consultas a datos de Driver.csv, Result.csv"
+    },
+    {
+        "name": "Races, Circuit",
+        "description": "Consultas a datos de Races.csv, Circuit.csv"
+    }
 
+]
 
-app=FastAPI() 
+description = """
+ChimichangApp API helps you do awesome stuff. 🚀
+
+## Consultas a csv's en Pandas
+* **El año con más carreras**
+* **El nombre del corredor con mayor cantidad de primeros puestos**
+* **El nombre del circuito con mas recorrido **
+* **El nombre del corredor con mayor cantidad de puntos en total**
+
+"""
+
+app=FastAPI(description=description,openapi_tags=tags_metadata) 
 
 @app.get("/")
 def index():
 
-    return {"hello":"world"}
+    return RedirectResponse ("/docs/")
 
 #no recibe parametros
 #abre un csv: races_.csv, cada registro es una carrera, cuenta la cantidad de registros por cada año
 #devuelve el Año con más carreras
-@app.get("/get_anio_con_mas_carreras/")
+@app.get("/get_anio_con_mas_carreras/",tags=["Races"])
 def get_anio_con_mayor_cantidad_de_carreras_():
     import pandas as pd
 
@@ -37,7 +62,7 @@ def get_anio_con_mayor_cantidad_de_carreras_():
 #abre un csv: result_.csv, cada registro es una resultado, agrupa los corredores y compara almacenadno el ganador con mas resultados en primer puesto
 #luego abre un csv: drivers_.csv, y busca el nombre del corredor en primer puesto
 #devuelve el nombre del corredor en primer puesto
-@app.get("/get_Piloto_con_mayor_cantidad_de_primeros_puestos/")
+@app.get("/get_Piloto_con_mayor_cantidad_de_primeros_puestos/",tags=["Driver, Result"])
 def get_Piloto_con_mayor_cantidad_de_primeros_puestos():
     import pandas as pd
     
@@ -70,13 +95,13 @@ def get_Piloto_con_mayor_cantidad_de_primeros_puestos():
     forename=conductor_df_1["forename"].iloc[0]
     surname=conductor_df_1["surname"].iloc[0]   
 
-    return {'El  nombre del corredor con mayor cantidad de primeros puestos: ' + forename +' '+ surname + ' con la cantidad de '+converted_auxiliar+' primeros puestos.'}
+    return {'El nombre del corredor con mayor cantidad de primeros puestos: ' + forename +' '+ surname + ' con la cantidad de '+converted_auxiliar+' primeros puestos.'}
 
 #no recibe parametros
 #abre un csv: races_.csv, cada registro es una circuito corrido, cuenta la cantidad de circuitId por cada circuito
 #luego abre un csv: circuit_.csv, y busca el circuitId con mas recorridos
 #devuelve el nombre del circuito con mas recorrido
-@app.get("/get_busca_circuito_con_mas_corridos/")
+@app.get("/get_busca_circuito_con_mas_corridos/",tags=["Races, Circuit"])
 async  def get_busca_circuito_con_mas_corridos():
 
     import pandas as pd
@@ -115,7 +140,7 @@ async  def get_busca_circuito_con_mas_corridos():
 #abre un csv: drivers_.csv, cada registro es corredor, busca los corredores con   american o british
 #luego abre un csv: result_.csv, y busca el nombre del corredor de esa nacionalidad con mayor puntaje
 #devuelve el nombre del corredor con mayor cantidad de puntos en total
-@app.get("/get_buscar_conductor_con_mas_puntaje")
+@app.get("/get_buscar_conductor_con_mas_puntaje/",tags=["Driver, Result"])
 async  def get_buscar_conductor_con_mas_puntaje():
     import pandas as pd
     #importar el csv result desde drive
