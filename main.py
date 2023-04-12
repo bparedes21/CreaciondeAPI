@@ -117,31 +117,39 @@ async  def get_busca_circuito_con_mas_corridos():
 #devuelve el nombre del corredor con mayor cantidad de puntos en total
 @app.get("/get_buscar_conductor_con_mas_puntaje")
 async  def get_buscar_conductor_con_mas_puntaje():
-
     import pandas as pd
-    result_dataset=os.path.join("result_.csv")
-    result_df=pd.read_csv(result_dataset)
+    #importar el csv result desde drive
+    url_result='https://drive.google.com/file/d/1-aOPIMrscEAJzU7P6hC7WJhaQokFvTaP/view?usp=share_link'
+    url='https://drive.google.com/uc?id=' + url_result.split('/')[-2]
+    result_df = pd.read_csv(url)
 
-    drivers_dataset=os.path.join('drivers_.csv')
-    drivers_df2=pd.read_csv(drivers_dataset)
+    #importar el csv driver desde drive
+    url_driver='https://drive.google.com/file/d/1I9rNZxMzv2NQCHJW4kc7L41a56UYoxXw/view?usp=sharing'
+    url_1='https://drive.google.com/uc?id=' + url_driver.split('/')[-2]
+    driverdf = pd.read_csv(url_1)
 
-    pilotos=drivers_df2[(drivers_df2['nationality'] == "american") | (drivers_df2['nationality'] == "british")]
+    #filtra las nacionalidades american o british
+    pilotos=driverdf[(driverdf['nationality'] == "american") | (driverdf['nationality'] == "british")]
+    #almacena los ids de esas nacionalidades
     conductor_american_british=pilotos["driverId"].values
 
     auxiliar=0
     auxiliar_conductor=0
-    for indice,conductor in enumerate(conductor_american_british):
+    #para cada conductor cuenta sus puntos el que tiene mayor puntaje
+    #se almacena en auxiliar_conductor
+    for conductor in conductor_american_british:
         conductor_puntos=result_df[result_df['points']==conductor]
-        
         conductor_puntos_cantidad=conductor_puntos["points"].sum()
+
         if(conductor_puntos_cantidad>auxiliar):
             auxiliar=conductor_puntos_cantidad
             auxiliar_conductor=conductor
-    name_driver=drivers_df2[drivers_df2['driverId'] == auxiliar_conductor]
+    #almacena todo el registro del conductor con el id guardado en auxiliar_conductor
+    name_driver=driverdf[driverdf['driverId'] == auxiliar_conductor]
     forename=name_driver["forename"].iloc[0]
     surname=name_driver["surname"].iloc[0]
     
-    return {'El nombre del corredor con mayor cantidad de puntos en total: ' +forename+' '+ surname+'!'}
+    return {'El nombre del corredor con mayor cantidad de puntos en total: ' +forename+' '+ surname+' con la cantidad de '+auxiliar+' puntos.'}
 
 
 
