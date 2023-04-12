@@ -5,26 +5,26 @@ from starlette.responses import  RedirectResponse
 tags_metadata = [
     {
         "name": "Races",
-        "description": "Consultas a datos de Races.csv"
+        "description": "Consultas datos csv: de Races.csv"
     },
     {
         "name": "Driver, Result",
-        "description": "Consultas a datos de Driver.csv, Result.csv"
+        "description": "Consultas datos de csv: Driver.csv, Result.csv"
     },
     {
         "name": "Races, Circuit",
-        "description": "Consultas a datos de Races.csv, Circuit.csv"
+        "description": "Consultas datos de csv: Races.csv, Circuit.csv"
     }
 
 ]
 
 description = """
-ChimichangApp API helps you do awesome stuff. 🚀
+🚥 Races API 🚗
 
-## Consultas a csv's en Pandas
+## Consultas a csv's en Pandas 🐼
 * **El año con más carreras**
 * **El nombre del corredor con mayor cantidad de primeros puestos**
-* **El nombre del circuito con mas recorrido **
+* **El nombre del circuito con mas recorrido**
 * **El nombre del corredor con mayor cantidad de puntos en total**
 
 """
