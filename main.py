@@ -101,7 +101,7 @@ async  def get_busca_circuito_con_mas_corridos():
     #circuitId_mas_recorrido almacena el id con mas recorridos
     circuitId_mas_recorrido=array_circuitId.index[0]
     #veces_recorridas almacena la cantidad de veces recorridas 
-    veces_recorridas=circuitId_mas_recorrido[0]
+    veces_recorridas=circuitId_mas_recorrido[circuitId_mas_recorrido]
     #convierte el tipo de dato int a str
     converted_veces_recorridas=str(veces_recorridas)
     #registro_de_circuito almacena el registro completo del id (del csv circuit) con mas recorridos encontrado en el csv races
