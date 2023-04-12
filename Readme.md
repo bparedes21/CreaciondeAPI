@@ -5,7 +5,7 @@
 
 <p align="left"> 
   <h3>Ver su funcionamiento</h3>
-   <a href="https://creacionde-api.vercel.app/docs"><img width="278" src="img/vercel.svg" alt="creacion-de-api"></a>
+   <a href="https://creacionde-api.vercel.app/docs"><img width="200" src="img/vercel.svg" alt="creacion-de-api"></a>
  </p>
 </div>
 
