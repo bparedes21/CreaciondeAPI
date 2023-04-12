@@ -20,13 +20,13 @@ def get_anio_con_mayor_cantidad_de_carreras_():
 
     url_drive='https://drive.google.com/file/d/1b4LVRIo2KCemZuKvVv3e3nll5KXp9-5H/view?usp=share_link'   
     url='https://drive.google.com/uc?id=' + url_drive.split('/')[-2]
-    """"racesdf = pd.read_csv(url)
+    racesdf = pd.read_csv(url)
     
     cantidad_carreras=racesdf['year'].value_counts()
     c=cantidad_carreras.index[0]
-    converted_num = str(c)"""
+    converted_num = str(c)
 
-    mensaje="El Año con más carreras " + url_drive + "!"
+    mensaje="El Año con más carreras " + converted_num + "!"
     return {"mensaje":mensaje}
 
 
