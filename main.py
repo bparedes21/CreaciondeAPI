@@ -11,15 +11,10 @@ def index():
 
     return {"hello":"world"}
 
-def create_app():
-    from waitress import serve
-    PORT = int(os.environ.get("PORT",8000))
-    serve(app, host="0.0.0.0", port=PORT)
-
 #no recibe parametros
 #abre un csv: races_.csv, cada registro es una carrera, cuenta la cantidad de registros por cada año
 #devuelve el Año con más carreras
-@app.get("/get_año_con_mas_carreras")
+@app.get("/get_año_con_mas_carreras/")
 def get_anio_con_mas_carreras():
     import pandas as pd
 
@@ -34,6 +29,11 @@ def get_anio_con_mas_carreras():
     mensaje="El Año con más carreras " + url_drive + "!"
     return {"mensaje":mensaje}
 
+
+def create_app():
+    from waitress import serve
+    PORT = int(os.environ.get("PORT",8000))
+    serve(app, host="0.0.0.0", port=PORT)
 
 if __name__ == "__main__":
     create_app()
