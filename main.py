@@ -19,7 +19,7 @@ tags_metadata = [
 ]
 
 description = """
-🚥Races API 🚗 El objetivo del proyecto es mostrar datos extraidos de archivos en formato CSV. Para ello primero hice un procesamiento de los datos garantizando la calidad de los mismos.
+🚥Races API 🚗 El objetivo del proyecto es mostrar informacion extraida de archivos en formato CSV. Para ello primero hice un procesamiento de los datos garantizando la calidad de los mismos.
 
 ## Consultas a csv's en Pandas 🐼
 * **El año con más carreras**
