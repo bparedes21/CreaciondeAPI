@@ -108,7 +108,7 @@ async  def get_busca_circuito_con_mas_corridos():
     
    
     
-    return {'El nombre del circuito con mas recorrido es: ' + nombre_de_circuitor + ' con la cantidad de '+converted_veces_recorridas+' veces recorridas.'}
+    return {'El nombre del circuito con mas recorrido es: ' + nombre_de_circuitor + ' con la cantidad recorrida de '+converted_veces_recorridas+' veces.'}
 
 #Piloto con mayor cantidad de puntos en total, cuyo constructor sea de nacionalidad sea American o British
 #no recibe parametros
@@ -144,12 +144,13 @@ async  def get_buscar_conductor_con_mas_puntaje():
         if(conductor_puntos_cantidad>auxiliar):
             auxiliar=conductor_puntos_cantidad
             auxiliar_conductor=conductor
+    converted_auxiliar = str(auxiliar)
     #almacena todo el registro del conductor con el id guardado en auxiliar_conductor
     name_driver=driverdf[driverdf['driverId'] == auxiliar_conductor]
     forename=name_driver["forename"].iloc[0]
     surname=name_driver["surname"].iloc[0]
     
-    return {'El nombre del corredor con mayor cantidad de puntos en total: ' +forename+' '+ surname+' con la cantidad de '+auxiliar+' puntos.'}
+    return {'El nombre del corredor con mayor cantidad de puntos en total: ' +forename+' '+ surname+' con la cantidad de '+converted_auxiliar+' puntos.'}
 
 
 
