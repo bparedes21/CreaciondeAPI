@@ -20,7 +20,7 @@ def create_app():
 #abre un csv: races_.csv, cada registro es una carrera, cuenta la cantidad de registros por cada año
 #devuelve el Año con más carreras
 @app.get("/get_año_con_mas_carreras")
-def get_año_con_mas_carreras():
+def get_anio_con_mas_carreras():
     import pandas as pd
 
     url_drive='https://drive.google.com/file/d/1b4LVRIo2KCemZuKvVv3e3nll5KXp9-5H/view?usp=share_link'   
