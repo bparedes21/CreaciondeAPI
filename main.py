@@ -72,6 +72,47 @@ def get_Piloto_con_mayor_cantidad_de_primeros_puestos():
 
     return {'El  nombre del corredor con mayor cantidad de primeros puestos: ' + forename +' '+ surname + ' con la cantidad de '+converted_auxiliar+' primeros puestos.'}
 
+#no recibe parametros
+#abre un csv: races_.csv, cada registro es una circuito corrido, cuenta la cantidad de circuitId por cada circuito
+#luego abre un csv: circuit_.csv, y busca el circuitId con mas recorridos
+#devuelve el nombre del circuito con mas recorrido
+@app.get("/get_busca_circuito_con_mas_corridos/")
+async  def get_busca_circuito_con_mas_corridos():
+
+    import pandas as pd
+    #importar el csv races desde drive
+    url_races='https://drive.google.com/file/d/1b4LVRIo2KCemZuKvVv3e3nll5KXp9-5H/view?usp=share_link'
+    url='https://drive.google.com/uc?id=' + url_races.split('/')[-2]
+    races_df = pd.read_csv(url)
+
+    #crear dataframes
+    array_circuitId=pd.DataFrame()
+    nombre_de_circuitor=pd.DataFrame()
+    registro_de_circuito=pd.DataFrame()
+    #importar el csv circuit desde drive
+    url_circuit='https://drive.google.com/file/d/1fFdYQQoc4afdt_QpE3sLUd8znCtBhkIz/view?usp=share_link'
+    url1='https://drive.google.com/uc?id=' + url_circuit.split('/')[-2]
+    circuit_df = pd.read_csv(url1)
+
+
+    
+    #array_circuitId almacena valores unicos de circuit id
+    array_circuitId["c"]=races_df['circuitId'].value_counts()
+    #circuitId_mas_recorrido almacena el id con mas recorridos
+    circuitId_mas_recorrido=array_circuitId.index[0]
+    #veces_recorridas almacena la cantidad de veces recorridas 
+    veces_recorridas=circuitId_mas_recorrido[0]
+    #convierte el tipo de dato int a str
+    converted_veces_recorridas=str(veces_recorridas)
+    #registro_de_circuito almacena el registro completo del id (del csv circuit) con mas recorridos encontrado en el csv races
+    registro_de_circuito=circuit_df[circuit_df["circuitId"]==circuitId_mas_recorrido]
+    #nombre_de_circuitor almacena el nombre del circuito
+    nombre_de_circuitor=registro_de_circuito["name"]
+    
+   
+    
+    return {'El nombre del circuito con mas recorrido es: ' + nombre_de_circuitor + ' con la cantidad de '+converted_veces_recorridas+' veces recorridas.'}
+
 def create_app():
     from waitress import serve
     PORT = int(os.environ.get("PORT",8000))
