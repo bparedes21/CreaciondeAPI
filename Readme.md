@@ -1,19 +1,28 @@
 <div>
 <h1>Presentacion</h1>
   <h3>En este proyecto proceso los datos para garantizar su calidad y luego creo una API para ejecutar determinadas consultas facilitando la informacion obtenida</h3>
+  <h5>* Completar de datos faltantes con web scraping. Luego las columnas con mas de 30% de datos faltantes fueron eliminadas.</h5>
+  <h5> * Comprobacion de que no hayan registros duplicados.</h5>
+  <h5>* Limpieza de caracteres: quitar acentos a las palabras ya que tenian acentos que no correspondian, pasar letras a minusculas, quitar espacios vacios delante o detras, campos con "\N" reemplazados con NaN segun su formato string , int, float.</h5>
+   
 <details open> 
   <summary><h2>Deploy en Vercel</h2></summary>
 
-<p align="left"> 
-  <h3>Ver su funcionamiento (haciendo click en logo Vercel 😃)</h3>
-   <a href="https://creacionde-api.vercel.app/docs"><img width="200" src="img/vercel.svg" alt="creacion-de-api"></a>
- </p>
+  <p align="left"> 
+     <h3>Ver su funcionamiento (haciendo click en logo Vercel 😃)</h3>
+     <a href="https://creacionde-api.vercel.app/docs"><img width="200" src="img/vercel.svg" alt="creacion-de-api"></a>
+   </p>
+</details>
 </div>
 
-<p align="left"> 
-  <h3>Flujo de trabajo</h3>
-   <a href=""><img width="500" src="img/fluj de trabajo.svg" alt="flujo de trabajo></a>
- </p>
+<div>
+  <details open> 
+   <summary><h2>Flujo de trabajo</h2></summary>
+    <p align="left"> 
+      <h3>Proceso</h3>
+       <a href=""><img width="500" src="img/fluj de trabajo.svg" alt="flujo de trabajo"></a>
+     </p>
+  </details> 
 </div>
 
 <details close> 
