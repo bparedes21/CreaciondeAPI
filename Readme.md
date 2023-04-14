@@ -24,7 +24,7 @@
      </p>
   </details> 
 </div>
-
+<div>
 <details close> 
   <summary><h2>Videos en youtube</h2></summary>
 
