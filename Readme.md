@@ -20,12 +20,11 @@
      <a href="https://creacionde-api.vercel.app/docs"><img width="200" src="img/vercel.svg" alt="creacion-de-api"></a>
    </p>
 </details>
-
+</div>
+<div>
+  
 ******************************************************************************
 
-</div>
-
-<div>
   <details open> 
    <summary><h2>Flujo de trabajo</h2></summary>
     <p align="left"> 
