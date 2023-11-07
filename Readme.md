@@ -10,6 +10,7 @@
 - `Limpieza de caracteres: quitar acentos a las palabras ya que tenian acentos que no correspondian, pasar letras a minusculas, quitar espacios vacios delante o detras, campos con "\N" reemplazados con NaN segun su formato string , int, float.`
 
 ******************************************************************************
+
 <details open> 
   
   <summary><h2>Deploy en Vercel</h2></summary>
@@ -20,7 +21,9 @@
    </p>
 </details>
 </div>
+
 ******************************************************************************
+
 <div>
   <details open> 
    <summary><h2>Flujo de trabajo</h2></summary>
