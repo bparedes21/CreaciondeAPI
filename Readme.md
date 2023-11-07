@@ -20,7 +20,7 @@
    </p>
 </details>
 </div>
-
+******************************************************************************
 <div>
   <details open> 
    <summary><h2>Flujo de trabajo</h2></summary>
@@ -30,6 +30,7 @@
      </p>
   </details> 
 </div>
+******************************************************************************
 <div>
 <details close> 
   <summary><h2>Videos en youtube</h2></summary>
