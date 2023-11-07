@@ -1,13 +1,13 @@
 <div>
 <h1>Presentacion</h1>
   
-- <h5>`En este proyecto proceso los datos para garantizar su calidad y luego creo una API para ejecutar determinadas consultas facilitando la informacion obtenida.`</h5>
+- `En este proyecto proceso los datos para garantizar su calidad y luego creo una API para ejecutar determinadas consultas facilitando la informacion obtenida.`
 
-- <h5>`Completar de datos faltantes con web scraping. Luego las columnas con mas de 30% de datos faltantes fueron eliminadas.`</h5>
+- `Completar de datos faltantes con web scraping. Luego las columnas con mas de 30% de datos faltantes fueron eliminadas.`
 
-- <h5>`Comprobacion de que no hayan registros duplicados.`</h5>
+- `Comprobacion de que no hayan registros duplicados.`
 
-- <h5>`Limpieza de caracteres: quitar acentos a las palabras ya que tenian acentos que no correspondian, pasar letras a minusculas, quitar espacios vacios delante o detras, campos con "\N" reemplazados con NaN segun su formato string , int, float.`</h5>
+- `Limpieza de caracteres: quitar acentos a las palabras ya que tenian acentos que no correspondian, pasar letras a minusculas, quitar espacios vacios delante o detras, campos con "\N" reemplazados con NaN segun su formato string , int, float.`
 
 ******************************************************************************
 <details open> 
