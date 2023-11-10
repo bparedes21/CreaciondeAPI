@@ -18,5 +18,7 @@ def importar_datos_csv():
     url1='https://drive.google.com/uc?id=' + url_circuit.split('/')[-2]
     circuit_df = pd.read_csv(url1)
 
-
-    return racesdf, result_df, driverdf, circuit_df
+    url_constructores='https://drive.google.com/file/d/1e_uw1TNT4MQ7SSC4Hzh__JnMArg-7zWk/view?usp=sharing'
+    url1='https://drive.google.com/uc?id=' + url_constructores.split('/')[-2]
+    constructores_df =pd.read_json(url1 ,lines=True)
+    return racesdf, result_df, driverdf, circuit_df, constructores_df

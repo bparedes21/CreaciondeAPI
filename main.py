@@ -83,8 +83,8 @@ def get_Piloto_con_mayor_cantidad_de_primeros_puestos():
     #cuando encuentra a el mayor guarda el id en auxiliar_conductor
     for conductor in array_conductor :
         conductor_df=result_df[result_df['driverId']==conductor]
-        primera_posicion=conductor_df[conductor_df['positionOrder']==1]
-        cantidad_de_veces=primera_posicion['positionOrder'].count()
+        primera_posicion=conductor_df[conductor_df['rank']=="1"]
+        cantidad_de_veces=primera_posicion['rank'].count()
         if(cantidad_de_veces>auxiliar):
             auxiliar=cantidad_de_veces
             auxiliar_conductor=conductor
@@ -103,36 +103,25 @@ def get_Piloto_con_mayor_cantidad_de_primeros_puestos():
 #devuelve el nombre del circuito con mas recorrido
 @app.get("/get_busca_circuito_con_mas_corridos/",tags=["Races, Circuit"])
 async  def get_busca_circuito_con_mas_corridos():
-
     import pandas as pd
-    #importar el csv races desde drive
-    url_races='https://drive.google.com/file/d/1b4LVRIo2KCemZuKvVv3e3nll5KXp9-5H/view?usp=share_link'
-    url='https://drive.google.com/uc?id=' + url_races.split('/')[-2]
-    races_df = pd.read_csv(url)
-
-
-    #array_circuitId almacena valores unicos de circuit id
-    array_circuitId=races_df['circuitId'].value_counts()
-    #circuitId_mas_recorrido almacena el id con mas recorridos
-    circuitId_mas_recorrido=array_circuitId.index[0]
-    
-    #veces_recorridas almacena la cantidad de veces recorridas 
-    veces_recorridas=array_circuitId[circuitId_mas_recorrido]
-    #convierte el tipo de dato int a str
-    converted_veces_recorridas=str(veces_recorridas)
-
-    #importar el csv circuit desde drive
-    url_circuit='https://drive.google.com/file/d/1fFdYQQoc4afdt_QpE3sLUd8znCtBhkIz/view?usp=share_link'
-    url1='https://drive.google.com/uc?id=' + url_circuit.split('/')[-2]
-    circuit_df = pd.read_csv(url1)
-
-    #registro_de_circuito almacena el registro completo del id (del csv circuit) con mas recorridos encontrado en el csv races
-    registro_de_circuito=circuit_df[circuit_df["circuitId"]==circuitId_mas_recorrido]
-    #nombre_de_circuitor almacena el nombre del circuito
-    nombre_de_circuitor=registro_de_circuito["name"].iloc[0]
-    
-   
-    
+    import sqlite3
+    name_db="Racing_BB.db"
+    conn=sqlite3.connect(name_db)
+    cursor = conn.cursor()
+    query = """SELECT  races.name as nombre_de_la_carrera , circuits.name as nombre_de_circuito , SUM( r.laps)  as cantidad_de_recorrido_vueltas FROM results r 
+    INNER JOIN 
+    races on races.raceId = r.raceId
+    INNER JOIN 
+    circuits ON circuits.circuitId  = races.circuitId 
+    GROUP BY nombre_de_circuito
+    ORDER BY  cantidad_de_recorrido_vueltas  DESC
+    LIMIT 1 """
+    #almaceno en df
+    df_query= pd.read_sql(query, conn)
+    nombre_de_circuitor=df_query["nombre_de_circuito"].iloc[0]
+    print(nombre_de_circuitor)
+    cursor.close()
+    conn.close()
     return {'El nombre del circuito con mas recorrido es: ' + nombre_de_circuitor + ' con la cantidad recorrida de '+converted_veces_recorridas+' veces.'}
 
 #Piloto con mayor cantidad de puntos en total, cuyo constructor sea de nacionalidad sea American o British

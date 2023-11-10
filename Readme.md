@@ -101,13 +101,15 @@ Resultado de la consulta:
 
 ```
 
-SELECT d.forename, d.surname,results.cantidad_de_primeros_puestos  FROM drivers d 
+SELECT d.forename, d.surname,results.cant_de_primeros_puestos  FROM drivers d 
 INNER JOIN
-(SELECT res.driverId  , res."position"  , COUNT(res."position") as cantidad_de_puestos  FROM results  as res
-WHERE res."position" =1
+(
+SELECT res.driverId  , res."rank"  , COUNT(res."rank") as cant_de_primeros_puestos  FROM results  as res
+WHERE res."rank"  ="1"
 GROUP BY res.driverId
-ORDER BY   cantidad_de_puestos DESC   
-LIMIT 1) as results 
+ORDER BY   cant_de_primeros_puestos DESC   
+LIMIT 1
+) as results 
 ON results.driverId  = d.driverId 
 
 ```
@@ -118,15 +120,50 @@ Resultado de la consulta:
 
 | forename |  surname | cantidad_de_primeros_puestos |
 |------|-----|-------------|
-| lewis | hamilton  |   95       |
+| lewis | hamilton  |   53       |
 
 </div>
 
 
 - `El nombre del circuito con mas recorrido`
+
+```
+SELECT  races.name as nombre_de_la_carrera , circuits.name as nombre_de_circuito , SUM( r.laps)  as cantidad_de_recorrido_vueltas FROM results r 
+INNER JOIN 
+races on races.raceId = r.raceId
+INNER JOIN 
+circuits ON circuits.circuitId  = races.circuitId 
+GROUP BY nombre_de_circuito
+ORDER BY  cantidad_de_recorrido_vueltas  DESC 
+```
+
+Resultado de la consulta:
+
+<div>
+
+| nombre_de_la_carrera |  nombre_de_circuito | cantidad_de_recorrido_vueltas |
+|------|-----|-------------|
+| monaco grand prix | Circuit de Monaco  |   75747      |
+
+</div>
+
+
 - `El nombre del corredor con mayor cantidad de puntos en total`
 
+```
+SELECT  d.forename ,d.surname , SUM(points) AS cantidad_de_puntos_en_total FROM results r 
+INNER JOIN
+drivers d on d.driverId = r.driverId 
+```
 
+Resultado de la consulta:
+
+<div>
+
+| forename |  surname | cantidad_de_puntos_en_total |
+|------|-----|-------------|
+| lewis | hamilton  |   44071.55      |
+</div>
 
 <details open> 
   

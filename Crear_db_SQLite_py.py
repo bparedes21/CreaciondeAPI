@@ -3,9 +3,9 @@ import funciones_py
 import sqlite3
 
 #importo los df desde drive
-racesdf, result_df, driverdf, circuit_df=funciones_py.importar_datos_csv()
+racesdf, result_df, driverdf, circuit_df, constructores_df=funciones_py.importar_datos_csv()
 
-name_db="Racing_db.db"
+name_db="Racing_BB.db"
 conn=sqlite3.connect(name_db)
 cursor = conn.cursor()
 
@@ -120,7 +120,7 @@ CREATE TABLE circuits (
 '''
 
 #inserto los datos en la base de datos con SQLite
-driverdf.to_sql('circuits', con=conn, index=False, index_label='circuitId', if_exists='replace')
+circuit_df.to_sql('circuits', con=conn, index=False, index_label='circuitId', if_exists='replace')
 conn.commit()
 
 """
@@ -131,5 +131,33 @@ print(df_query.head())
 """
 conn.commit()
 
+# Comando SQL para crear una tabla llamada 'constructors' 
+cursor.execute('''DROP TABLE IF EXISTS constructors;''')
 
+create_table_query = '''
+CREATE TABLE constructors (
+    constructorId INTEGER NOT NULL,
+    constructorRef TEXT,
+	name REAL,
+    location TEXT,
+    country TEXT,
+    lat TEXT,
+    lng TEXT,
+    alt INTEGER,	
+    url TEXT,	
+);
+'''
+conn.commit()
+#inserto los datos en la base de datos con SQLite
+constructores_df.to_sql('constructors', con=conn, index=False, index_label='constructorId', if_exists='replace')
+conn.commit()
+
+"""
+query = 'SELECT * FROM constructors'
+#almaceno en df
+df_query= pd.read_sql(query, conn)
+print(df_query.head())
 conn.close()
+"""
+conn.close()
+
