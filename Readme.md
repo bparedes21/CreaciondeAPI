@@ -79,19 +79,30 @@
 Se requiere saber:
 
 - `El año con más carreras`
+
+```
+SELECT r."year", COUNT(r.raceId) as cantidad_de_carreras FROM races as r
+GROUP BY r."year"
+ORDER BY   cantidad_de_carreras DESC   ,r."year"  ASC
+LIMIT 1
+```
+
+Resultado de la consulta:
+
+<div align = "center">
+
+| year | cantidad_de_carreras |
+|--|----------------|
+| 2021 | 23  |
+
+
+</div>
+
 - `El nombre del corredor con mayor cantidad de primeros puestos`
 - `El nombre del circuito con mas recorrido`
 - `El nombre del corredor con mayor cantidad de puntos en total`
 
-<div align = "center">
 
-| | Table Of Contents |
-|--|----------------|
-| 1 | [About](#About)  |
-| 2 | [Setup](#setup)  | 
-| 3 | [Consultas_SQL](#Consultas_SQL)  | 
-
-</div>
 
 <details open> 
   
