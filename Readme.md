@@ -89,16 +89,41 @@ LIMIT 1
 
 Resultado de la consulta:
 
-<div align = "center">
+<div>
 
 | year | cantidad_de_carreras |
 |--|----------------|
 | 2021 | 23  |
 
-
 </div>
 
 - `El nombre del corredor con mayor cantidad de primeros puestos`
+
+```
+
+SELECT d.forename, d.surname,results.cantidad_de_puestos  FROM drivers d 
+INNER JOIN
+(SELECT res.driverId  , res."position"  , COUNT(res."position") as cantidad_de_puestos  FROM results  as res
+WHERE res."position" =1
+GROUP BY res.driverId
+ORDER BY   cantidad_de_puestos DESC   
+LIMIT 1) as results 
+ON results.driverId  = d.driverId 
+
+```
+
+Resultado de la consulta:
+
+<div>
+
+lewis	hamilton	95
+| forename |  surname | cantidad_de_carreras |
+|------|-----|-------------|
+| lewis | hamilton  |   95       |
+
+</div>
+
+
 - `El nombre del circuito con mas recorrido`
 - `El nombre del corredor con mayor cantidad de puntos en total`
 
