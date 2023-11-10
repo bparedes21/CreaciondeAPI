@@ -82,7 +82,7 @@ def get_Piloto_con_mayor_cantidad_de_primeros_puestos():
     #para cada id del conductor cuenta la cantidad de primeros puestos
     #cuando encuentra a el mayor guarda el id en auxiliar_conductor
     for conductor in array_conductor :
-        conductor_df=result_df[result_df['positionOrder']==conductor]
+        conductor_df=result_df[result_df['driverId']==conductor]
         primera_posicion=conductor_df[conductor_df['positionOrder']==1]
         cantidad_de_veces=primera_posicion['positionOrder'].count()
         if(cantidad_de_veces>auxiliar):
