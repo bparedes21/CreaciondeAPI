@@ -50,8 +50,9 @@
   
 ******************************************************************************
 
-## About :car:
-  
+## About 
+:car:
+
 - `En este proyecto proceso los datos para garantizar su calidad y luego creo una API para ejecutar determinadas consultas facilitando la informacion obtenida.`
 
 - `Completar de datos faltantes con web scraping. Luego las columnas con mas de 30% de datos faltantes fueron eliminadas.`
@@ -61,6 +62,29 @@
 - `Limpieza de caracteres: quitar acentos a las palabras ya que tenian acentos que no correspondian, pasar letras a minusculas, quitar espacios vacios delante o detras, campos con "\N" reemplazados con NaN segun su formato string , int, float.`
 
 ******************************************************************************
+
+## Setup 
+
+-Configuracion. Lista de librerias utilizadas
+
+```js      
+
+!pip install pandas
+!pip install sqlite3
+
+```
+
+## Consultas_SQL
+
+Se requiere saber:
+
+- `El año con más carreras`
+- `El nombre del corredor con mayor cantidad de primeros puestos`
+- `El nombre del circuito con mas recorrido`
+- `El nombre del corredor con mayor cantidad de puntos en total`
+
+
+
 
 <details open> 
   
