@@ -101,7 +101,7 @@ Resultado de la consulta:
 
 ```
 
-SELECT d.forename, d.surname,results.cantidad_de_puestos  FROM drivers d 
+SELECT d.forename, d.surname,results.cantidad_de_primeros_puestos  FROM drivers d 
 INNER JOIN
 (SELECT res.driverId  , res."position"  , COUNT(res."position") as cantidad_de_puestos  FROM results  as res
 WHERE res."position" =1
@@ -116,8 +116,7 @@ Resultado de la consulta:
 
 <div>
 
-lewis	hamilton	95
-| forename |  surname | cantidad_de_carreras |
+| forename |  surname | cantidad_de_primeros_puestos |
 |------|-----|-------------|
 | lewis | hamilton  |   95       |
 
