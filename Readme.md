@@ -83,8 +83,15 @@ Se requiere saber:
 - `El nombre del circuito con mas recorrido`
 - `El nombre del corredor con mayor cantidad de puntos en total`
 
+<div align = "center">
 
+| | Table Of Contents |
+|--|----------------|
+| 1 | [About](#About)  |
+| 2 | [Setup](#setup)  | 
+| 3 | [Consultas_SQL](#Consultas_SQL)  | 
 
+</div>
 
 <details open> 
   
