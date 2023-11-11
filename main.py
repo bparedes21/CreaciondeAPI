@@ -119,7 +119,6 @@ async  def get_busca_circuito_con_mas_corridos():
     #almaceno en df
     df_query= pd.read_sql(query, conn)
     nombre_de_circuitor=df_query["nombre_de_circuito"].iloc[0]
-    print(nombre_de_circuitor)
     cursor.close()
     conn.close()
     return {'El nombre del circuito con mas recorrido es: ' + nombre_de_circuitor + ' con la cantidad recorrida de '+converted_veces_recorridas+' veces.'}
