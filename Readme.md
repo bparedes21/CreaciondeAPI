@@ -11,7 +11,8 @@
 
 <a href="https://github.com/404"><img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="20%"></a>
 
-<H2> :crossed_flags: Apreta aca para ir a ver la API con las respuestas! :vertical_traffic_light: </H2>
+
+<H2> :crossed_flags: Apreta aca para ir a ver la API con las respuestas! :vertical_traffic_light: <img width="200" src="img/vercel.svg" alt="creacion-de-api"> </H2>
 
 :sunrise_over_mountains: [Races, drivers, circuits, results](https://creacionde-api.vercel.app/docs) - Deploy de API 
 
@@ -89,7 +90,7 @@ LIMIT 1
 
 Resultado de la consulta:
 
-<div>
+<div align = "center">
 
 | year | cantidad_de_carreras |
 |--|----------------|
@@ -116,7 +117,7 @@ ON results.driverId  = d.driverId
 
 Resultado de la consulta:
 
-<div>
+<div align = "center">
 
 | forename |  surname | cantidad_de_primeros_puestos |
 |------|-----|-------------|
@@ -139,7 +140,7 @@ ORDER BY  cantidad_de_recorrido_vueltas  DESC
 
 Resultado de la consulta:
 
-<div>
+<div align = "center">
 
 | nombre_de_la_carrera |  nombre_de_circuito | cantidad_de_recorrido_vueltas |
 |------|-----|-------------|
@@ -158,11 +159,12 @@ drivers d on d.driverId = r.driverId
 
 Resultado de la consulta:
 
-<div>
+<div align = "center">
 
 | forename |  surname | cantidad_de_puntos_en_total |
 |------|-----|-------------|
 | lewis | hamilton  |   44071.55      |
+
 </div>
 
 <details open> 
