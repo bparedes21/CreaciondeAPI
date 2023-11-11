@@ -51,7 +51,7 @@
 ******************************************************************************
 
 ## About 
-:car:
+## :car:
 
 - `En este proyecto proceso los datos para garantizar su calidad y luego creo una API para ejecutar determinadas consultas facilitando la informacion obtenida.`
 
@@ -75,6 +75,7 @@
 ```
 
 ## Consultas_SQL
+## :blue_car:
 
 Se requiere saber:
 
