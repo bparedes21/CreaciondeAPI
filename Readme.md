@@ -11,8 +11,7 @@
 
 <a href="https://github.com/404"><img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="20%"></a>
 
-
-<H2> :crossed_flags: Apreta aca para ir a ver la API con las respuestas! :vertical_traffic_light: <img width="200" src="img/vercel.svg" alt="creacion-de-api"> </H2>
+<H2> :crossed_flags: Apreta aca para ir a ver la API con las respuestas! :vertical_traffic_light:  <img width="200" src="img/vercel.svg" alt="creacion-de-api"></H2>
 
 :sunrise_over_mountains: [Races, drivers, circuits, results](https://creacionde-api.vercel.app/docs) - Deploy de API 
 
