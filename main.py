@@ -103,7 +103,7 @@ def get_Piloto_con_mayor_cantidad_de_primeros_puestos():
 #luego abre un csv: circuit_.csv, y busca el circuitId con mas recorridos
 #devuelve el nombre del circuito con mas recorrido
 @app.get("/get_busca_circuito_con_mas_corridos/",tags=["Races, Circuit"])
-async  def get_busca_circuito_con_mas_corridos():
+async  def get_busca_circuito_con_mas_corrido():
 
     name_db="Racing_BB.db"
     conn=sqlite3.connect(name_db)
