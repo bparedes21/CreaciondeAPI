@@ -1,3 +1,6 @@
+#importo librerias
+import pandas as pd
+import sqlite3
 
 from fastapi import FastAPI
 import os
@@ -41,7 +44,6 @@ def index():
 #devuelve el Año con más carreras
 @app.get("/get_anio_con_mas_carreras/",tags=["Races"])
 def get_anio_con_mayor_cantidad_de_carreras_():
-    import pandas as pd
 
     url_races='https://drive.google.com/file/d/1b4LVRIo2KCemZuKvVv3e3nll5KXp9-5H/view?usp=share_link'   
     url='https://drive.google.com/uc?id=' + url_races.split('/')[-2]
@@ -64,7 +66,6 @@ def get_anio_con_mayor_cantidad_de_carreras_():
 #devuelve el nombre del corredor en primer puesto
 @app.get("/get_Piloto_con_mayor_cantidad_de_primeros_puestos/",tags=["Driver, Result"])
 def get_Piloto_con_mayor_cantidad_de_primeros_puestos():
-    import pandas as pd
     
     url_result='https://drive.google.com/file/d/1-aOPIMrscEAJzU7P6hC7WJhaQokFvTaP/view?usp=share_link'
     url='https://drive.google.com/uc?id=' + url_result.split('/')[-2]
@@ -103,8 +104,7 @@ def get_Piloto_con_mayor_cantidad_de_primeros_puestos():
 #devuelve el nombre del circuito con mas recorrido
 @app.get("/get_busca_circuito_con_mas_corridos/",tags=["Races, Circuit"])
 async  def get_busca_circuito_con_mas_corridos():
-    import pandas as pd
-    import sqlite3
+
     name_db="Racing_BB.db"
     conn=sqlite3.connect(name_db)
     cursor = conn.cursor()
@@ -122,6 +122,7 @@ async  def get_busca_circuito_con_mas_corridos():
     veces_recorrido=df_query["cantidad_de_recorrido_vueltas"].iloc[0]
     cursor.close()
     conn.close()
+
     return {'El nombre del circuito con mas recorrido es: ' + nombre_de_circuitor + ' con la cantidad recorrida de '+veces_recorrido+' veces.'}
 
 #Piloto con mayor cantidad de puntos en total, cuyo constructor sea de nacionalidad sea American o British
@@ -131,7 +132,7 @@ async  def get_busca_circuito_con_mas_corridos():
 #devuelve el nombre del corredor con mayor cantidad de puntos en total
 @app.get("/get_buscar_conductor_con_mas_puntaje/",tags=["Driver, Result"])
 async  def get_buscar_conductor_con_mas_puntaje():
-    import pandas as pd
+
     #importar el csv result desde drive
     url_result='https://drive.google.com/file/d/1-aOPIMrscEAJzU7P6hC7WJhaQokFvTaP/view?usp=share_link'
     url='https://drive.google.com/uc?id=' + url_result.split('/')[-2]
