@@ -123,7 +123,9 @@ async  def get_busca_circuito_con_mas_corrido():
     cursor.close()
     conn.close()
 
-    return {'El nombre del circuito con mas recorrido es: ' + nombre_de_circuitor + ' con la cantidad recorrida de '+veces_recorrido+' veces.'}
+    veces_recorrido_str=str(veces_recorrido)
+
+    return {'El nombre del circuito con mas recorrido es: ' + nombre_de_circuitor + ' con la cantidad recorrida de '+veces_recorrido_str+' veces.'}
 
 #Piloto con mayor cantidad de puntos en total, cuyo constructor sea de nacionalidad sea American o British
 #no recibe parametros
