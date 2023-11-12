@@ -80,19 +80,19 @@ def transformar_todos_los_archivos():
     driversdf=new_df.copy()
     
     new_df1=transformar_results(results_df)
-    driversdf=pd.DataFrame()
-    driversdf=new_df1.copy()
+    results_df=pd.DataFrame()
+    results_df=new_df1.copy()
 
     new_df2=transformar_races(races_df)
-    driversdf=pd.DataFrame()
-    driversdf=new_df2.copy()
+    races_df=pd.DataFrame()
+    races_df=new_df2.copy()
 
     new_df3=transformar_constructors(constructors_df)
-    driversdf=pd.DataFrame()
-    driversdf=new_df3.copy()
+    constructors_df=pd.DataFrame()
+    constructors_df=new_df3.copy()
 
     new_df4=transformar_circuits(circuits_df)
-    driversdf=pd.DataFrame()
-    driversdf=new_df4.copy()
+    circuits_df=pd.DataFrame()
+    circuits_df=new_df4.copy()
 
     return driversdf, results_df, races_df, constructors_df, circuits_df
