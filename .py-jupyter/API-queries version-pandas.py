@@ -8,15 +8,15 @@ from starlette.responses import  RedirectResponse
 tags_metadata = [
     {
         "name": "Races",
-        "description": "Consultas datos tablas: de Races"
+        "description": "Consultas datos csv: de Races.csv"
     },
     {
         "name": "Driver, Result",
-        "description": "Consultas datos de tablas: Drivers, Results"
+        "description": "Consultas datos de csv: Driver.csv, Result.csv"
     },
     {
         "name": "Races, Circuit",
-        "description": "Consultas datos de tablas: Races, Circuits"
+        "description": "Consultas datos de csv: Races.csv, Circuit.csv"
     }
 
 ]
@@ -44,24 +44,18 @@ def index():
 #devuelve el Año con más carreras
 @app.get("/get_anio_con_mas_carreras/",tags=["Races"])
 def get_anio_con_mayor_cantidad_de_carreras_():
-    
-    name_db="Racing_BB.db"
-    conn=sqlite3.connect(name_db)
-    cursor = conn.cursor()
-    query = """SELECT r."year", COUNT(r.raceId) as cantidad_de_carreras FROM races as r
-    GROUP BY r."year"
-    ORDER BY   cantidad_de_carreras DESC   ,r."year"  ASC
-    LIMIT 1 """
-    #almaceno en df
-    df_query= pd.read_sql(query, conn)
-    
-    anios=df_query["year"].iloc[0]
-    converted_anio=str(anios)
 
-    cantidad_del_anio=df_query["cantidad_de_carreras"].iloc[0]
-    converted_cantidad_del_anio=str(cantidad_del_anio)
-    cursor.close()
-    conn.close()
+    url_races='https://drive.google.com/file/d/1b4LVRIo2KCemZuKvVv3e3nll5KXp9-5H/view?usp=share_link'   
+    url='https://drive.google.com/uc?id=' + url_races.split('/')[-2]
+    racesdf = pd.read_csv(url)
+    
+    cantidad_carreras=racesdf['year'].value_counts()
+    #primer indice de la serie
+    anio=cantidad_carreras.index[0]
+    #valor del indice de la serie
+    cantidad_del_anio=cantidad_carreras[anio]
+    converted_anio = str(anio)
+    converted_cantidad_del_anio = str(cantidad_del_anio)
 
     mensaje="El Año " + converted_anio +" tuvo la cantidad de "+converted_cantidad_del_anio + " carreras. Fue el año con más carreras!" 
     return {"mensaje":mensaje}
@@ -73,33 +67,34 @@ def get_anio_con_mayor_cantidad_de_carreras_():
 @app.get("/get_Piloto_con_mayor_cantidad_de_primeros_puestos/",tags=["Driver, Result"])
 def get_Piloto_con_mayor_cantidad_de_primeros_puestos():
     
-    name_db="Racing_BB.db"
-    conn=sqlite3.connect(name_db)
-    cursor = conn.cursor()
-    query = """
-    SELECT d.forename, d.surname,results.cant_de_primeros_puestos  FROM drivers d 
-    INNER JOIN
-    (
-    SELECT res.driverId  , res."rank"  , COUNT(res."rank") as cant_de_primeros_puestos  FROM results  as res
-    WHERE res."rank"  ="1"
-    GROUP BY res.driverId
-    ORDER BY   cant_de_primeros_puestos DESC   
-    LIMIT 1
-    ) as results 
-    ON results.driverId  = d.driverId 
-    LIMIT 1 """
-    #almaceno en df
-    df_query= pd.read_sql(query, conn)
-    
-    forename=df_query["forename"].iloc[0]
-    
-    surname=df_query["surname"].iloc[0]
+    url_result='https://drive.google.com/file/d/1-aOPIMrscEAJzU7P6hC7WJhaQokFvTaP/view?usp=share_link'
+    url='https://drive.google.com/uc?id=' + url_result.split('/')[-2]
+    result_df = pd.read_csv(url)
 
-    cantidad_del_anio=df_query["cant_de_primeros_puestos"].iloc[0]
-    converted_auxiliar=str(cantidad_del_anio)
+    url_driver='https://drive.google.com/file/d/1I9rNZxMzv2NQCHJW4kc7L41a56UYoxXw/view?usp=sharing'
+    url_1='https://drive.google.com/uc?id=' + url_driver.split('/')[-2]
+    driverdf = pd.read_csv(url_1)
+    #array con los id de los conductores
+    array_conductor=result_df['driverId'].sort_values()
+    array_conductor=array_conductor.unique()
 
-    cursor.close()
-    conn.close()
+    auxiliar=0
+    auxiliar_conductor=0
+    #para cada id del conductor cuenta la cantidad de primeros puestos
+    #cuando encuentra a el mayor guarda el id en auxiliar_conductor
+    for conductor in array_conductor :
+        conductor_df=result_df[result_df['driverId']==conductor]
+        primera_posicion=conductor_df[conductor_df['rank']=="1"]
+        cantidad_de_veces=primera_posicion['rank'].count()
+        if(cantidad_de_veces>auxiliar):
+            auxiliar=cantidad_de_veces
+            auxiliar_conductor=conductor
+    converted_auxiliar = str(auxiliar)
+    #guarda el registro con todos los datos del conductor con el id que contiene auxiliar_conductor
+    conductor_df_1=driverdf[driverdf['driverId']==auxiliar_conductor]
+    #guarda el nombre y apellido del registro
+    forename=conductor_df_1["forename"].iloc[0]
+    surname=conductor_df_1["surname"].iloc[0]   
 
     return {'El nombre del corredor con mayor cantidad de primeros puestos: ' + forename +' '+ surname + ' con la cantidad de '+converted_auxiliar+' primeros puestos.'}
 
@@ -139,27 +134,38 @@ async  def get_busca_circuito_con_mas_corrido():
 #devuelve el nombre del corredor con mayor cantidad de puntos en total
 @app.get("/get_buscar_conductor_con_mas_puntaje/",tags=["Driver, Result"])
 async  def get_buscar_conductor_con_mas_puntaje():
-    name_db="Racing_BB.db"
-    conn=sqlite3.connect(name_db)
-    cursor = conn.cursor()
-    query = """
-    SELECT  d.forename ,d.surname , SUM(points) AS cantidad_de_puntos_en_total FROM results r 
-    INNER JOIN
-    drivers d on d.driverId = r.driverId 
-    LIMIT 1 """
-    #almaceno en df
-    df_query= pd.read_sql(query, conn)
-    
-    forename=df_query["forename"].iloc[0]
 
-    surname=df_query["surname"].iloc[0]
+    #importar el csv result desde drive
+    url_result='https://drive.google.com/file/d/1-aOPIMrscEAJzU7P6hC7WJhaQokFvTaP/view?usp=share_link'
+    url='https://drive.google.com/uc?id=' + url_result.split('/')[-2]
+    result_df = pd.read_csv(url)
 
-    cantidad_de_puntos_en_total=df_query["cantidad_de_puntos_en_total"].iloc[0]
+    #importar el csv driver desde drive
+    url_driver='https://drive.google.com/file/d/1I9rNZxMzv2NQCHJW4kc7L41a56UYoxXw/view?usp=sharing'
+    url_1='https://drive.google.com/uc?id=' + url_driver.split('/')[-2]
+    driverdf = pd.read_csv(url_1)
 
-    converted_auxiliar=str(cantidad_de_puntos_en_total)
+    #filtra las nacionalidades american o british
+    pilotos=driverdf[(driverdf['nationality'] == "american") | (driverdf['nationality'] == "british")]
+    #almacena los ids de esas nacionalidades
+    conductor_american_british=pilotos["driverId"].values
 
-    cursor.close()
-    conn.close()
+    auxiliar=0
+    auxiliar_conductor=0
+    #para cada conductor cuenta sus puntos el que tiene mayor puntaje
+    #se almacena en auxiliar_conductor
+    for conductor in conductor_american_british:
+        conductor_puntos=result_df[result_df['points']==conductor]
+        conductor_puntos_cantidad=conductor_puntos["points"].sum()
+
+        if(conductor_puntos_cantidad>auxiliar):
+            auxiliar=conductor_puntos_cantidad
+            auxiliar_conductor=conductor
+    converted_auxiliar = str(auxiliar)
+    #almacena todo el registro del conductor con el id guardado en auxiliar_conductor
+    name_driver=driverdf[driverdf['driverId'] == auxiliar_conductor]
+    forename=name_driver["forename"].iloc[0]
+    surname=name_driver["surname"].iloc[0]
     
     return {'El nombre del corredor con mayor cantidad de puntos en total: ' +forename+' '+ surname+' con la cantidad de '+converted_auxiliar+' puntos.'}
 

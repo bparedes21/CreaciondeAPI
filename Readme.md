@@ -37,8 +37,11 @@
 ## Directory Structure
 
 ```js
-
-├── funciones_py
+├── .py-jupyter
+│   │──
+│   │──
+│
+│── funciones_py
 │── Crear_db_SQLite_py.py
 │── Racing_db.db
 │── consultas_sql
