@@ -65,6 +65,8 @@ Este proyecto realiza un proceso ETL (Extracción, Transformación y Carga) de d
 ### Carga de Datos en la Base de Datos SQLite:
 - Se crea una base de datos llamada "Racing_db.db".
 - Se generan tablas para almacenar información relevante.
+  
+<a href="https://github.com/404"><img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%"></a>
 
 ## Uso del Proyecto :factory: 
 
