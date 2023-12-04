@@ -51,19 +51,28 @@
 <a href="https://github.com/404"><img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%"></a>
   
 ******************************************************************************
-
 ## About 
+### Descripción
 
-- `En este proyecto proceso los datos para garantizar su calidad y luego creo una API para ejecutar determinadas consultas facilitando la informacion obtenida.`
+Este proyecto realiza un proceso ETL (Extracción, Transformación y Carga) de datos relacionados con carreras, pilotos, circuitos y resultados. Posteriormente, crea una base de datos SQLite para almacenar la información procesada. La finalidad es facilitar el acceso a los datos mediante una API con endpoints específicos para consultas.
 
-- `Luego las columnas con mas de 30% de datos faltantes fueron eliminadas.`
+## Proceso ETL
 
-- `Comprobacion de que no hayan registros duplicados.`
+### Extracción de Datos:
+- Los datos se extraen desde diversas fuentes.
 
-- `Limpieza de caracteres: quitar acentos a las palabras ya que tenian acentos que no correspondian, pasar letras a minusculas, quitar espacios vacios delante o detras, campos con "\N" reemplazados con NaN segun su formato string , int, float.`
+### Transformación de Datos:
+- Completado de datos faltantes mediante web scraping.
+- Eliminación de columnas con más del 30% de datos faltantes.
+- Verificación de registros duplicados.
+- Limpieza de caracteres, incluyendo la eliminación de acentos, conversión a minúsculas y manejo de campos con "\N".
 
+### Carga de Datos en la Base de Datos SQLite:
+- Se crea una base de datos llamada "Racing_db.db".
+- Se generan tablas para almacenar información relevante.
+
+  
 ******************************************************************************
-
 ## Setup 
 
 -Configuracion. Lista de librerias utilizadas
