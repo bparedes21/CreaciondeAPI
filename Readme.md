@@ -3,7 +3,7 @@
 <div align = "center">
 <img src="/img/races.jpg" width="400 px">
 
-#   [ :checkered_flag: RaceResults :triangular_flag_on_post: ] (#)
+#   :checkered_flag: [RaceResults] :triangular_flag_on_post:  (#)
   
 </div>
 
