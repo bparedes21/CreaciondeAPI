@@ -66,6 +66,13 @@ Este proyecto realiza un proceso ETL (Extracción, Transformación y Carga) de d
 - Se crea una base de datos llamada "Racing_db.db".
 - Se generan tablas para almacenar información relevante.
 
+## Uso del Proyecto :factory: 
+
+1. **Ejecución del Script:**
+   ```bash
+   python etl_script.py
+
+
   
 ******************************************************************************
 ## Setup 
