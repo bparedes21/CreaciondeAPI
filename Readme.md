@@ -70,8 +70,7 @@ Este proyecto realiza un proceso ETL (Extracción, Transformación y Carga) de d
 
 1. **Ejecución del Script:**
    ```bash
-   python etl_script.py
-
+   python carga_de_datos_db.py
 
   
 ******************************************************************************
