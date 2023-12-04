@@ -56,7 +56,7 @@
 
 - `En este proyecto proceso los datos para garantizar su calidad y luego creo una API para ejecutar determinadas consultas facilitando la informacion obtenida.`
 
-- `Completar de datos faltantes con web scraping. Luego las columnas con mas de 30% de datos faltantes fueron eliminadas.`
+- `Luego las columnas con mas de 30% de datos faltantes fueron eliminadas.`
 
 - `Comprobacion de que no hayan registros duplicados.`
 
