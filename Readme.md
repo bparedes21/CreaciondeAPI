@@ -49,20 +49,32 @@
 
 # Carrera a la Eficiencia: ETL y API para Datos de Carreras, Pilotos y Circuitos
 
-En el emocionante mundo de las carreras, la gestión de datos es tan crucial como la velocidad en la pista. Este proyecto no solo realiza un impresionante proceso ETL (Extracción, Transformación y Carga) de datos relacionados con carreras, pilotos, circuitos y resultados, sino que va más allá al crear una robusta base de datos SQLite. ¿La meta? Facilitar el acceso a esta valiosa información a través de una API intuitiva con endpoints específicos para consultas, acelerando así el acceso y análisis de datos en el emocionante universo de las competiciones automovilísticas. ¡Prepárate para una experiencia de datos que acelera hacia la victoria! 🏎️🚀
+En el emocionante mundo de las carreras, donde cada milisegundo cuenta, la gestión de datos es tan crucial como la velocidad en la pista. Este proyecto es mucho más que un simple proceso ETL (Extracción, Transformación y Carga) de datos relacionados con carreras, pilotos, circuitos y resultados. Va más allá al crear una robusta base de datos SQLite, transformando datos crudos en un recurso estratégico.
 
 ## About 
-### Descripción
+### Descripción del Proyecto
 
-Este proyecto realiza un proceso ETL (Extracción, Transformación y Carga) de datos relacionados con carreras, pilotos, circuitos y resultados. Posteriormente, crea una base de datos SQLite para almacenar la información procesada. La finalidad es facilitar el acceso a los datos mediante una API con endpoints específicos para consultas.
+Este proyecto se sumerge en el universo de las competiciones automovilísticas, extrayendo datos esenciales para proporcionar insights significativos. A través de un proceso ETL eficiente, los datos se transforman y cargan en una base de datos SQLite, convirtiéndolos en una fuente accesible y potente.
 
+# Objetivo Principal
+
+La finalidad principal de este proyecto es facilitar el acceso a la rica información generada por las carreras. Lo logra mediante una API intuitiva con endpoints específicos para consultas, brindando a los usuarios la capacidad de acelerar el acceso y análisis de datos en este emocionante universo.
+
+## Características Destacadas
+
+- **Proceso ETL Robusto:** Desde la extracción hasta la carga, cada paso está diseñado para optimizar la eficiencia y la calidad de los datos.
+  
+- **Base de Datos SQLite:** Se crea una base de datos sólida que almacena la información procesada, asegurando la disponibilidad y la integridad de los datos.
+
+- **API Potente:** La interfaz API ofrece endpoints específicos para consultas, proporcionando una experiencia ágil y personalizada para los usuarios.
+
+Este proyecto es el aliado perfecto para aquellos que buscan no solo datos, sino información valiosa que impulsa decisiones estratégicas en el mundo de las carreras. Prepárate para vivir una experiencia de datos que acelera hacia la victoria. 🏎️🚀
 ## Proceso ETL
 
 ### Extracción de Datos:
 - Los datos se extraen desde diversas fuentes.
 
 ### Transformación de Datos:
-- Completado de datos faltantes mediante web scraping.
 - Eliminación de columnas con más del 30% de datos faltantes.
 - Verificación de registros duplicados.
 - Limpieza de caracteres, incluyendo la eliminación de acentos, conversión a minúsculas y manejo de campos con "\N".
