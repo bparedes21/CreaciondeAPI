@@ -38,7 +38,6 @@ jobs:
     - name: Print Conda Environment
       run: conda info
 
-
     - name: Run Python script
       run: python carga_de_datos_db.py
 
