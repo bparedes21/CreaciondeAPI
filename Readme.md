@@ -21,25 +21,7 @@
 
 ******************************************************************************
 </div>
-## Primeros pasos 
 
-1. **Clonar el repositorio:** 
-
-```bash git clone <repository-url>``` 
-
-2. **Navegar al repositorio:** 
-
-``` bash cd <directorio-repositorio>``` 
-
-3. **Explore los flujos de trabajo YAML:** 
-
-- Abra el directorio `.github/workflows` para buscar archivos de flujo de trabajo YAML. 
- 
-## Uso del flujo de trabajo proporcionado 
- 
-1. **Seleccione Flujo de trabajo:**
-
-2. **-Identifique el flujo de trabajo que desea utilizar. Por ejemplo, podría haber un flujo de trabajo llamado "Paquete Python usando Conda" en un archivo como `python_package.yml`.**
 ## Table of Contents
 
 </br>
@@ -112,9 +94,26 @@ Este proyecto es el aliado perfecto para aquellos que buscan no solo datos, sino
 
 ## Uso del Proyecto :factory: 
 
-1. **Ejecución del Script:**
-   ```bash
-   python carga_de_datos_db.py
+
+## Primeros pasos 
+
+1. **Clonar el repositorio:** 
+
+```bash git clone <repository-url>``` 
+
+2. **Navegar al repositorio:** 
+
+``` bash cd <directorio-repositorio>``` 
+
+3. **Explore los flujos de trabajo YAML:** 
+
+- Abra el directorio `.github/workflows` para buscar archivos de flujo de trabajo YAML. 
+ 
+## Uso del flujo de trabajo proporcionado 
+ 
+1. **Seleccione Flujo de trabajo:**
+
+2. **-Identifique el flujo de trabajo que desea utilizar. Por ejemplo, podría haber un flujo de trabajo llamado "Paquete Python usando Conda" en un archivo como `python_package.yml`.**
 
   
 ******************************************************************************
