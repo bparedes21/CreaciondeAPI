@@ -1,0 +1,35 @@
+name: Python and SQL Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.11.5  
+        
+    - name: Install dependencies
+      run: 
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt  
+
+    - name: Run Python script
+      run: python carga_de_datos_db.py  
+
+    - name: Set up SQLite
+      run: |
+        # Instalar SQLite si no está presente
+        sudo apt-get install sqlite3
+        # Configurar y crear tu base de datos SQLite
+        sqlite3 mydatabase.db 
