@@ -1,3 +1,10 @@
+
+
+```markdown 
+
+# Guía de uso del repositorio Este repositorio utiliza GitHub Actions con configuración YAML para flujos de trabajo automatizados. Siga estos pasos para utilizar el repositorio de manera eficaz: 
+
+
 <a href="https://github.com/404"><img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%"></a>
 
 <div align = "center">
@@ -14,7 +21,25 @@
 
 ******************************************************************************
 </div>
+## Primeros pasos 
 
+1. **Clonar el repositorio:** 
+
+```bash git clone <repository-url>``` 
+
+2. **Navegar al repositorio:** 
+
+``` bash cd <directorio-repositorio>``` 
+
+3. **Explore los flujos de trabajo YAML:** 
+
+- Abra el directorio `.github/workflows` para buscar archivos de flujo de trabajo YAML. 
+ 
+## Uso del flujo de trabajo proporcionado 
+ 
+1. **Seleccione Flujo de trabajo:**
+
+2. **-Identifique el flujo de trabajo que desea utilizar. Por ejemplo, podría haber un flujo de trabajo llamado "Paquete Python usando Conda" en un archivo como `python_package.yml`.**
 ## Table of Contents
 
 </br>
