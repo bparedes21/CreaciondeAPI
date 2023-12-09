@@ -29,7 +29,7 @@ jobs:
     - name: Install Pandas
       run: |
         python -m pip install --upgrade pip
-        pip install pandas==2.1.1
+        pip install pandas==2.1.1 
 
     - name: Run Python script
       run: python carga_de_datos_db.py
