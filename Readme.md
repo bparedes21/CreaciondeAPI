@@ -1,10 +1,3 @@
-
-
-```markdown 
-
-# Guía de uso del repositorio Este repositorio utiliza GitHub Actions con configuración YAML para flujos de trabajo automatizados. Siga estos pasos para utilizar el repositorio de manera eficaz: 
-
-
 <a href="https://github.com/404"><img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%"></a>
 
 <div align = "center">
@@ -93,6 +86,12 @@ Este proyecto es el aliado perfecto para aquellos que buscan no solo datos, sino
 <a href="https://github.com/404"><img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" width="100%"></a>
 
 ## Uso del Proyecto :factory: 
+
+
+
+```markdown``` 
+
+# Guía de uso del repositorio Este repositorio utiliza GitHub Actions con configuración YAML para flujos de trabajo automatizados. Siga estos pasos para utilizar el repositorio de manera eficaz: 
 
 
 ## Primeros pasos 
