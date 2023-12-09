@@ -6,9 +6,12 @@ on:
       - main
 
 jobs:
-  build:
-
+  nombre_del_trabajo:
     runs-on: ubuntu-latest
+
+    steps:
+    - name: Paso de Ejemplo
+      run: echo "Hola, Mundo!"
 
     steps:
     - name: Checkout repository
