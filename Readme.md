@@ -112,7 +112,13 @@ Este proyecto es el aliado perfecto para aquellos que buscan no solo datos, sino
  
 1. **Seleccione Flujo de trabajo:**
 
-2. **-Identifique el flujo de trabajo que desea utilizar. Por ejemplo, podría haber un flujo de trabajo llamado "Paquete Python usando Conda" en un archivo como `python_package.yml`.**
+2. **-El archivo a utilizar se llama `python-package-conda.yml`.**
+
+3. **Credenciales de Azure:**
+   - Puede interactuar con Azure
+
+4. **Ver la Ejecución del Flujo de Trabajo:**
+   - Visite la pestaña "Actions" en GitHub para monitorear el progreso y los resultados del flujo de trabajo.
 
 
 ******************************************************************************
