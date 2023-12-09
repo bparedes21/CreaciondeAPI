@@ -91,7 +91,7 @@ Este proyecto es el aliado perfecto para aquellos que buscan no solo datos, sino
 
 ```markdown``` 
 
-# Guía de uso del repositorio Este repositorio utiliza GitHub Actions con configuración YAML para flujos de trabajo automatizados. Siga estos pasos para utilizar el repositorio de manera eficaz: 
+## Guía de uso del repositorio Este repositorio utiliza GitHub Actions con configuración YAML para flujos de trabajo automatizados. Siga estos pasos para utilizar el repositorio de manera eficaz: 
 
 
 ## Primeros pasos 
@@ -114,7 +114,7 @@ Este proyecto es el aliado perfecto para aquellos que buscan no solo datos, sino
 
 2. **-Identifique el flujo de trabajo que desea utilizar. Por ejemplo, podría haber un flujo de trabajo llamado "Paquete Python usando Conda" en un archivo como `python_package.yml`.**
 
-  
+
 ******************************************************************************
 ## Setup 
 
