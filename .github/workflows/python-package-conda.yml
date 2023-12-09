@@ -35,4 +35,9 @@ jobs:
       run: |
         conda install pytest
         pytest
+
+    - name: Run tests
+      run: |
+        pytest /home/runner/work/RacesResults-ETL-DB-Queries/RacesResults-ETL-DB-Queries/test_mi_prueba.py
+
     - run: echo "🍏 This job's status is ${{ job.status }}."
