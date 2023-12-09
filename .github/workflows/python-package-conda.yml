@@ -23,7 +23,7 @@ jobs:
         ls -R ${{ github.workspace }}
     - name: Install dependencies
       run: |
-        conda env update --file /Python_and_SQL_Workflow.yml --name base
+        conda env update --file /home/runner/work/RacesResults-ETL-DB-Queries/RacesResults-ETL-DB-Queries/Python_and_SQL_Workflow.yml --name base
     - name: Lint with flake8
       run: |
         conda install flake8
