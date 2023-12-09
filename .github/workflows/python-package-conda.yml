@@ -18,6 +18,9 @@ jobs:
       run: |
         # $CONDA is an environment variable pointing to the root of the miniconda directory
         echo $CONDA/bin >> $GITHUB_PATH
+    - name: List files in the repository
+      run: |
+        ls -R ${{ github.workspace }}
     - name: Install dependencies
       run: |
         conda env update --file /Python_and_SQL_Workflow.yml --name base
