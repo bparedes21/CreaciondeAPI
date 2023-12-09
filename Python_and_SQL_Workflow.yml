@@ -26,6 +26,18 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         conda install -c conda-forge pandas
+    
+    - name: Print Installed Versions
+      run: |
+        python -m pip list
+        conda list
+
+    - name: Update Conda
+      run: conda update --all --yes
+      
+    - name: Print Conda Environment
+      run: conda info
+
 
     - name: Run Python script
       run: python carga_de_datos_db.py
