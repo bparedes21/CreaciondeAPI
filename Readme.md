@@ -3,7 +3,7 @@
 <div align = "center">
 <img src="/img/races.jpg" width="400 px">
 
-# [Proyecto :checkered_flag:  RaceResults :triangular_flag_on_post: ETL, creacion de DB en SQLITE](#)
+# [Proyecto :checkered_flag:  RaceResults :triangular_flag_on_post: ETL, creacion de DB en SQLITE, Integración de Datos y Limpieza, Automatización del proceso ETL](#)
 
 
 <H2>¡ :crossed_flags:  Apreta aca :point_down: para ir a ver la API con las respuestas! :vertical_traffic_light:! </H2>
